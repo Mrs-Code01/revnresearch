@@ -1,0 +1,68 @@
+{
+  "version": 1.1,
+  "atDirectives": [
+    {
+      "name": "@theme",
+      "description": "Tailwind v4. Defines design tokens (colors, fonts, spacing) that become CSS variables and generate utility classes. Use `@theme inline` when the values reference other CSS variables.",
+      "references": [
+        { "name": "Tailwind docs", "url": "https://tailwindcss.com/docs/functions-and-directives#theme-directive" }
+      ]
+    },
+    {
+      "name": "@utility",
+      "description": "Tailwind v4. Registers a custom utility class that works with variants such as hover: and lg:.",
+      "references": [
+        { "name": "Tailwind docs", "url": "https://tailwindcss.com/docs/functions-and-directives#utility-directive" }
+      ]
+    },
+    {
+      "name": "@custom-variant",
+      "description": "Tailwind v4. Defines a custom variant. Used here to drive class-based dark mode from `.dark` on the html element.",
+      "references": [
+        { "name": "Tailwind docs", "url": "https://tailwindcss.com/docs/functions-and-directives#custom-variant-directive" }
+      ]
+    },
+    {
+      "name": "@variant",
+      "description": "Tailwind v4. Applies a Tailwind variant to styles in your CSS.",
+      "references": [
+        { "name": "Tailwind docs", "url": "https://tailwindcss.com/docs/functions-and-directives#variant-directive" }
+      ]
+    },
+    {
+      "name": "@apply",
+      "description": "Tailwind. Inlines existing utility classes into custom CSS.",
+      "references": [
+        { "name": "Tailwind docs", "url": "https://tailwindcss.com/docs/functions-and-directives#apply-directive" }
+      ]
+    },
+    {
+      "name": "@source",
+      "description": "Tailwind v4. Explicitly registers a source file or glob for class detection.",
+      "references": [
+        { "name": "Tailwind docs", "url": "https://tailwindcss.com/docs/functions-and-directives#source-directive" }
+      ]
+    },
+    {
+      "name": "@plugin",
+      "description": "Tailwind v4. Loads a JavaScript plugin.",
+      "references": [
+        { "name": "Tailwind docs", "url": "https://tailwindcss.com/docs/functions-and-directives#plugin-directive" }
+      ]
+    },
+    {
+      "name": "@config",
+      "description": "Tailwind v4. Loads a legacy JavaScript config file.",
+      "references": [
+        { "name": "Tailwind docs", "url": "https://tailwindcss.com/docs/functions-and-directives#config-directive" }
+      ]
+    },
+    {
+      "name": "@reference",
+      "description": "Tailwind v4. Imports theme tokens from another stylesheet without emitting its CSS.",
+      "references": [
+        { "name": "Tailwind docs", "url": "https://tailwindcss.com/docs/functions-and-directives#reference-directive" }
+      ]
+    }
+  ]
+}

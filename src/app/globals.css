@@ -1,0 +1,204 @@
+@import "tailwindcss";
+
+/* Class-based dark mode (Tailwind v4). Driven by `.dark` on <html>. */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* ---------------------------------------------------------------
+   Warm, homely palette: paper white, brick red, olive green,
+   warm neutrals.
+
+   Data colors validated with the dataviz palette validator:
+     light  green #4F7A3E vs market #8A8178 -> CVD dE 21.4 (deutan)
+     dark   green #719A57 vs market #857A6E -> CVD dE 21.2 (deutan)
+   Both clear the >=12 target. The market series is a deliberate warm
+   neutral, not a second hue: brick red stays reserved for status.
+
+   The *brand* green (--green-ink) is duller than the *data* green
+   (--green). Chart marks need chroma to not read as gray; body text
+   does not.
+   --------------------------------------------------------------- */
+:root {
+  --bg: #fbf8f4;
+  --bg-soft: #f5f0e8;
+  --surface: #ffffff;
+  --surface-2: #f4efe7;
+  --surface-3: #ebe4d9;
+  --border: #e2dacd;
+  --border-strong: #cdc2b1;
+
+  --fg: #231c17;
+  --fg-muted: #6a5d53;
+  --fg-subtle: #96887b;
+
+  --red: #9c3b2b;
+  --red-ink: #8a3325;
+  --red-soft: #f6e9e5;
+  --green: #4f7a3e;
+  --green-ink: #41652f;
+  --green-soft: #eaefe4;
+  --amber: #976a1c;
+  --amber-ink: #7e5814;
+  --amber-soft: #f7efdf;
+
+  --market: #8a8178;
+  --market-soft: #ece7e0;
+
+  --ring: #9c3b2b;
+}
+
+.dark {
+  --bg: #14100d;
+  --bg-soft: #191410;
+  --surface: #1c1713;
+  --surface-2: #231d18;
+  --surface-3: #2c241e;
+  --border: #322a23;
+  --border-strong: #463b32;
+
+  --fg: #f2ebe3;
+  --fg-muted: #a99b8e;
+  --fg-subtle: #7e7266;
+
+  --red: #c2604b;
+  --red-ink: #d87d68;
+  --red-soft: #2b1a15;
+  --green: #719a57;
+  --green-ink: #90b475;
+  --green-soft: #1a2216;
+  --amber: #c2933f;
+  --amber-ink: #d6ab5c;
+  --amber-soft: #2a2013;
+
+  --market: #857a6e;
+  --market-soft: #262019;
+
+  --ring: #c2604b;
+}
+
+@theme inline {
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --font-display: var(--font-jakarta), var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+
+  --color-bg: var(--bg);
+  --color-bg-soft: var(--bg-soft);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-surface-3: var(--surface-3);
+  --color-border: var(--border);
+  --color-border-strong: var(--border-strong);
+
+  --color-fg: var(--fg);
+  --color-fg-muted: var(--fg-muted);
+  --color-fg-subtle: var(--fg-subtle);
+
+  --color-red: var(--red);
+  --color-red-ink: var(--red-ink);
+  --color-red-soft: var(--red-soft);
+  --color-green: var(--green);
+  --color-green-ink: var(--green-ink);
+  --color-green-soft: var(--green-soft);
+  --color-amber: var(--amber);
+  --color-amber-ink: var(--amber-ink);
+  --color-amber-soft: var(--amber-soft);
+
+  --color-market: var(--market);
+  --color-market-soft: var(--market-soft);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 6rem;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+
+  body {
+    background-color: var(--bg);
+    color: var(--fg);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    /* Body copy is deliberately not small. */
+    font-size: 1.0625rem;
+    line-height: 1.65;
+  }
+
+  ::selection {
+    background: var(--red);
+    color: #fff;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--ring);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+}
+
+@utility display {
+  font-family: var(--font-display);
+  font-weight: 800;
+  letter-spacing: -0.035em;
+  line-height: 0.95;
+}
+
+@utility balance {
+  text-wrap: balance;
+}
+
+@utility pretty {
+  text-wrap: pretty;
+}
+
+/* Faint warm paper tooth. No gradients, no glow. */
+@utility paper {
+  background-image: radial-gradient(
+    color-mix(in oklab, var(--border-strong) 45%, transparent) 0.5px,
+    transparent 0.5px
+  );
+  background-size: 18px 18px;
+}
+
+/* ---------------- Scroll reveal ----------------
+   Only hides when JS is running, so no-JS still renders content. */
+.js [data-reveal] {
+  opacity: 0;
+  transform: translateY(18px);
+}
+
+.js [data-reveal].is-in {
+  opacity: 1;
+  transform: none;
+  transition:
+    opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  transition-delay: var(--reveal-delay, 0ms);
+}
+
+/* Bars grow from the baseline once scrolled into view. */
+.js [data-bar] {
+  transform: scaleX(0);
+  transform-origin: left center;
+}
+
+.js [data-bar].is-in {
+  transform: scaleX(1);
+  transition: transform 1s cubic-bezier(0.16, 1, 0.3, 1);
+  transition-delay: var(--bar-delay, 0ms);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .js [data-reveal],
+  .js [data-bar] {
+    opacity: 1;
+    transform: none;
+  }
+  .js [data-reveal].is-in,
+  .js [data-bar].is-in {
+    transition: none;
+  }
+}

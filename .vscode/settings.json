@@ -1,0 +1,7 @@
+{
+  // Teaches the built-in CSS language server the Tailwind v4 at-rules
+  // (@theme, @utility, @custom-variant, ...) so they stop reporting as
+  // "Unknown at rule". Preferred over disabling `css.lint.unknownAtRules`,
+  // which would also hide real typos such as `@theem`.
+  "css.customData": [".vscode/css-custom-data.json"]
+}
