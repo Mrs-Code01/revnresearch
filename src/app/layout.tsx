@@ -27,17 +27,14 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#fbf8f4" },
-    { media: "(prefers-color-scheme: dark)", color: "#14100d" },
-  ],
+  themeColor: "#fbf8f4",
 };
 
 /**
- * Runs before first paint: resolves the stored/system theme and flags that JS
- * is live, which is what arms the scroll-reveal styles.
+ * Runs before first paint to flag that JS is live, which is what arms the
+ * scroll-reveal styles.
  */
-const themeScript = `(function(){try{var e=document.documentElement;e.classList.add("js");var t=localStorage.getItem("theme");var d=t?t==="dark":window.matchMedia("(prefers-color-scheme: dark)").matches;e.classList.toggle("dark",d);e.style.colorScheme=d?"dark":"light";}catch(_){}})();`;
+const themeScript = `(function(){try{var e=document.documentElement;e.classList.add("js");e.style.colorScheme="light";}catch(_){}})();`;
 
 export default function RootLayout({
   children,

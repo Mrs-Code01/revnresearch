@@ -1,16 +1,12 @@
 @import "tailwindcss";
 
-/* Class-based dark mode (Tailwind v4). Driven by `.dark` on <html>. */
-@custom-variant dark (&:where(.dark, .dark *));
-
 /* ---------------------------------------------------------------
    Warm, homely palette: paper white, brick red, olive green,
-   warm neutrals.
+   warm neutrals. Light theme only.
 
    Data colors validated with the dataviz palette validator:
-     light  green #4F7A3E vs market #8A8178 -> CVD dE 21.4 (deutan)
-     dark   green #719A57 vs market #857A6E -> CVD dE 21.2 (deutan)
-   Both clear the >=12 target. The market series is a deliberate warm
+     green #4F7A3E vs market #8A8178 -> CVD dE 21.4 (deutan)
+   Clears the >=12 target. The market series is a deliberate warm
    neutral, not a second hue: brick red stays reserved for status.
 
    The *brand* green (--green-ink) is duller than the *data* green
@@ -44,35 +40,6 @@
   --market-soft: #ece7e0;
 
   --ring: #9c3b2b;
-}
-
-.dark {
-  --bg: #14100d;
-  --bg-soft: #191410;
-  --surface: #1c1713;
-  --surface-2: #231d18;
-  --surface-3: #2c241e;
-  --border: #322a23;
-  --border-strong: #463b32;
-
-  --fg: #f2ebe3;
-  --fg-muted: #a99b8e;
-  --fg-subtle: #7e7266;
-
-  --red: #c2604b;
-  --red-ink: #d87d68;
-  --red-soft: #2b1a15;
-  --green: #719a57;
-  --green-ink: #90b475;
-  --green-soft: #1a2216;
-  --amber: #c2933f;
-  --amber-ink: #d6ab5c;
-  --amber-soft: #2a2013;
-
-  --market: #857a6e;
-  --market-soft: #262019;
-
-  --ring: #c2604b;
 }
 
 @theme inline {

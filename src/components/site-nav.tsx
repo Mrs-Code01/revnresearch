@@ -3,7 +3,6 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
-import { ThemeToggle } from "./theme-toggle";
 import { Logo } from "./logo";
 
 const links = [
@@ -82,7 +81,6 @@ export function SiteNav() {
         </div>
 
         <div className="flex items-center gap-2 sm:gap-3">
-          <ThemeToggle />
           <Link
             href="/#the-memo"
             className="hidden whitespace-nowrap rounded-full bg-red px-5 py-2.5 text-[0.95rem] font-semibold text-white transition-colors hover:bg-red-ink lg:inline-flex"
