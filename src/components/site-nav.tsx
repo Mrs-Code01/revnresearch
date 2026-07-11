@@ -85,7 +85,7 @@ export function SiteNav() {
             href="/#the-memo"
             className="hidden whitespace-nowrap rounded-full bg-red px-5 py-2.5 text-[0.95rem] font-semibold text-white transition-colors hover:bg-red-ink lg:inline-flex"
           >
-            Open today&apos;s briefing
+            Show me today
           </Link>
 
           <button
@@ -128,7 +128,7 @@ export function SiteNav() {
           onClick={() => setOpen(false)}
           className="mt-4 flex items-center justify-center rounded-full bg-red px-5 py-3.5 text-base font-semibold text-white"
         >
-          Open today&apos;s briefing
+          Show me today
         </Link>
       </div>
     </header>

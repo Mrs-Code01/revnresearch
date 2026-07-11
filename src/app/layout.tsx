@@ -19,11 +19,11 @@ const jakarta = Plus_Jakarta_Sans({
 
 export const metadata: Metadata = {
   title: {
-    default: "Rev & Research · Your revenue command center",
+    default: "Rev & Research · The read + the numbers",
     template: "%s · Rev & Research",
   },
   description:
-    "One place to see what's moving, what's at risk, and what to price next. Every occupancy signal, pricing recommendation, and market comparison for your portfolio, computed once, validated centrally, refreshed daily.",
+    "Every number on your homes: how they're pacing, where you've got upside, what to price next. Pulled straight off your live Wheelhouse data and checked before it ever reaches you.",
 };
 
 export const viewport: Viewport = {

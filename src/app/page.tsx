@@ -52,7 +52,7 @@ export default function BriefingPage() {
 
               <h1 className="display mt-8 text-[clamp(2.75rem,min(5.6vw,8.2vh),4.9rem)]">
                 {hero.headlineLead}{" "}
-                <span className="text-red">{hero.headlineRisk}</span>,{" "}
+                <span className="text-red">{hero.headlineRisk}</span>
                 {hero.headlineTail}
               </h1>
 
@@ -100,19 +100,9 @@ export default function BriefingPage() {
               </h2>
 
               <div className="pretty mt-9 flex flex-col gap-6 text-[1.15rem] leading-[1.8] text-fg-muted">
-                <p>
-                  Your 2-bedroom homes are filling at{" "}
-                  <strong className="font-semibold text-fg">75%</strong> against a
-                  market sitting at{" "}
-                  <strong className="font-semibold text-fg">44%</strong>. You&apos;re
-                  30 points ahead of the field. Last year says more of October
-                  still fills from this exact point, so hold your nerve on rate
-                  there. A handful of homes have gone quiet with room left to
-                  sell. They&apos;re listed below with the price move that gets them
-                  booking again. And two groups are worth promoting to everyone
-                  right now while demand is real.
-                </p>
-                <p>{memo.paragraphs[1]}</p>
+                {memo.paragraphs.map((p, i) => (
+                  <p key={i}>{p}</p>
+                ))}
               </div>
 
               <p className="mt-10 border-t border-border-strong pt-7 text-[1.02rem] font-semibold text-fg">
@@ -176,7 +166,7 @@ export default function BriefingPage() {
       <section id="what-it-shows" className="scroll-mt-24 py-24 sm:py-32">
         <Container>
           <div className="max-w-3xl" data-reveal>
-            <SectionLabel>The six things this page shows you</SectionLabel>
+            <SectionLabel>Here&apos;s what you&apos;re looking at</SectionLabel>
             <h2 className="display balance mt-8 text-[clamp(2.3rem,4.8vw,3.9rem)]">
               Six reads. One list. Worked top-down.
             </h2>

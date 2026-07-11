@@ -6,20 +6,20 @@ const columns = [
   {
     title: "The briefing",
     links: [
-      { label: "This week, at a glance", href: "/#the-memo" },
-      { label: "What this page shows you", href: "/#what-it-shows" },
-      { label: "Market-relative performance", href: "/#market-lead" },
-      { label: "Why the numbers are trustworthy", href: "/#trust" },
+      { label: "Start here", href: "/#the-memo" },
+      { label: "Here's what you're looking at", href: "/#what-it-shows" },
+      { label: "Where you stand, by home size", href: "/#market-lead" },
+      { label: "Why you can trust these numbers", href: "/#trust" },
     ],
   },
   {
     title: "Signals & actions",
     links: [
-      { label: "Changing dynamics", href: "/signals#changing-dynamics" },
-      { label: "Price floors and steps", href: "/signals#floors" },
-      { label: "The flex line", href: "/signals#flex-line" },
-      { label: "Needs a win", href: "/signals#needs-a-win" },
-      { label: "Push list", href: "/signals#push-list" },
+      { label: "Read last year before you cut", href: "/signals#changing-dynamics" },
+      { label: "The lowest you should ever go", href: "/signals#floors" },
+      { label: "Your closer", href: "/signals#flex-line" },
+      { label: "The quiet ones", href: "/signals#needs-a-win" },
+      { label: "Groups to push right now", href: "/signals#push-list" },
     ],
   },
   {
@@ -45,9 +45,8 @@ export function SiteFooter() {
               </span>
             </Link>
             <p className="pretty mt-6 max-w-sm text-[1rem] leading-relaxed text-fg-muted">
-              Every occupancy signal, pricing recommendation, and market
-              comparison for your portfolio, computed once, validated centrally,
-              refreshed daily.
+              Every number on your homes, pulled straight off your live
+              Wheelhouse data and checked before it ever reaches you.
             </p>
             <p className="mt-7 inline-block border border-border-strong px-4 py-2 text-[0.85rem] text-fg-muted">
               Wheelhouse sync healthy, refreshed daily

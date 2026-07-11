@@ -17,6 +17,7 @@ import {
   flexLine,
   floors,
   needsAWin,
+  occupancyFool,
   pushList,
   signalsIntro,
 } from "@/content/copy";
@@ -34,7 +35,7 @@ import interior02 from "../../../public/images/interior-02.jpg";
 export const metadata: Metadata = {
   title: "Signals & actions",
   description:
-    "Why it moved, and what to do about it: changing dynamics, price floors and steps, the flex line, homes that need a win, and this week's push list.",
+    "Why the number moved: you vs. your market, what last year says is coming, price floors and the steps down, your closer, the stalled list, and the groups to push right now.",
 };
 
 const ladder = [
@@ -63,7 +64,7 @@ const ranked = [
     img: prop05,
     name: "2371 Racquet Club",
     month: "July",
-    move: "Anchor at the flex line",
+    move: "Anchor at the closer",
     detail: "Booked at $468 a night",
   },
 ];
@@ -80,9 +81,16 @@ export default function SignalsPage() {
               <h1 className="display mt-8 text-[clamp(2.75rem,min(5.6vw,8.2vh),4.9rem)]">
                 {signalsIntro.title}
               </h1>
-              <p className="pretty mt-7 max-w-xl text-[1.08rem] leading-[1.65] text-fg-muted lg:text-[1.12rem]">
-                {signalsIntro.body}
-              </p>
+              <div className="mt-7 flex max-w-xl flex-col gap-5">
+                {signalsIntro.paragraphs.map((p, i) => (
+                  <p
+                    key={i}
+                    className="pretty text-[1.08rem] leading-[1.65] text-fg-muted lg:text-[1.12rem]"
+                  >
+                    {p}
+                  </p>
+                ))}
+              </div>
               <div className="mt-9">
                 <ButtonLink href="#changing-dynamics" variant="primary">
                   Read the signals
@@ -187,6 +195,21 @@ export default function SignalsPage() {
         </Container>
       </section>
 
+      {/* ======================= DON'T LET OCCUPANCY FOOL YOU ======================= */}
+      <section id="occupancy-fool" className="scroll-mt-24 pb-24 sm:pb-32">
+        <Container>
+          <div className="max-w-3xl" data-reveal>
+            <SectionLabel>{occupancyFool.label}</SectionLabel>
+            <h2 className="display balance mt-8 text-[clamp(2.1rem,4.2vw,3.4rem)]">
+              {occupancyFool.title}
+            </h2>
+            <p className="pretty mt-8 text-[1.12rem] leading-relaxed text-fg-muted">
+              {occupancyFool.body}
+            </p>
+          </div>
+        </Container>
+      </section>
+
       {/* ======================= FLOORS + FLEX LINE ======================= */}
       <section className="bg-bg-soft py-24 sm:py-32">
         <Container>
@@ -197,10 +220,7 @@ export default function SignalsPage() {
                 <SectionLabel>{floors.label}</SectionLabel>
 
                 <p className="pretty mt-9 text-[1.12rem] leading-[1.75] text-fg-muted">
-                  404 Barrington Arms, August. Floor{" "}
-                  <strong className="font-semibold text-fg">$249</strong> (its own
-                  owner-approved minimum). Step down from today&apos;s ask at 10% a
-                  time, and never cross the floor.
+                  {floors.body}
                 </p>
 
                 <ol className="mt-10 flex flex-col gap-3">
@@ -266,11 +286,7 @@ export default function SignalsPage() {
                 <SectionLabel>{flexLine.label}</SectionLabel>
 
                 <p className="pretty mt-9 text-[1.12rem] leading-[1.75] text-fg-muted">
-                  404 Barrington Arms has booked at{" "}
-                  <strong className="font-semibold text-fg">$447</strong> a night
-                  for August. 2371 Racquet Club has booked at{" "}
-                  <strong className="font-semibold text-fg">$468</strong> for July.
-                  When a guest hesitates, that&apos;s your anchor.
+                  {flexLine.body}
                 </p>
 
                 <div className="mt-10 flex flex-col gap-4">
